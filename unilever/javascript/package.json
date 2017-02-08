@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "description": "Unilever - Country Crock",
+  "main": "main.js",
+  "blipp": {
+    "title": "Unilever - Country Crock",
+    "shortTitle": "Unilever"
+  },
+  "dependencies": {
+    "blippar": "1.4.6"
+    }
+  }
