@@ -46,21 +46,28 @@ function turnOnTracking() {
 blipp.onScanningData = function(jsonText) {
   var recoObject = JSON.parse(jsonText);
   var names = recoObject.map(function(entity) {
-    if (entity.name === 'container' ||
-        entity.name === 'sign'
+    var name = entity.name.toLowerCase();
+    if (name === 'margarine' ||
+        name === 'butter' ||
+        name === 'packet (container)' ||
+        name === 'container' ||
+        name === 'sign' ||
+        name === 'tin can' ||
+        name === 'iron (golf)'
        ) {
       findCrock();
     }
-    if ((entity.name === 'Broccoli' ||
-         entity.name === 'herb')
+    if ((name === 'broccoli' ||
+         name === 'herb' ||
+         name === 'bok choy')
          && hasFoundCrock
          && !hasFoundBrocc
        ) {
            findBrocc();
          }
-    return entity.name;
+    console.log(name);
+    return name;
   });
-  console.log(names);
 };
 
 function findCrock() {
